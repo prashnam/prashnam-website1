@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      background: linear-gradient(to right, #3498db, #eb87d9); /* Gradient from blue to sky blue */
+      color: #fff; /* Text color, white for better contrast */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Choose your preferred font family */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+    }
+    .container {
+        margin: -40%;
+        border: black 2px;
+    }
+    .div1 {
+   
+    }
+    .div2{
+
+    }
+    .div3{
+        
+    }
+    img {width: 200px;}
+
+    .greetings{
+        
+        font-weight: 900;
+        background: linear-gradient(to right, #bbd3e6, #adf9fd); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+      font-size: 24px;
+        
+    }
+    .button-forward {
+        padding: 10px;
+        border-radius: 30px;
+        border: none;
+        color: #ffffff;
+       
+    }
+    .pushable {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: deeppink;
+  transition: filter 250ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: hsl(226, 25%, 69%);
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    hsl(248, 39%, 39%) 0%,
+    hsl(248, 39%, 49%) 8%,
+    hsl(248, 39%, 39%) 92%,
+    hsl(248, 39%, 29%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: hsl(248, 53%, 58%);
+  padding: 16px 32px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover {
+  filter: brightness(110%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+p {
+  font-weight: 900;
+        background: linear-gradient(to right, #bbd3e6, #adf9fd); 
+      -webkit-background-clip: text; 
+      color: transparent; 
+      font-size: 24px;
+}
+.input-container {
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  height: 40px;
+  border: 2px solid #0B2447;
+  border-top: none;
+  border-bottom: none;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  box-shadow: 7px 7px 0px 0px #0B2447;
+  transition: all 0.5s;
+}
+
+.input:focus {
+  box-shadow: none;
+  transition: all 0.5s;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #0B2447;
+  transition: all 0.5s;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.input-container .topline {
+  position: absolute;
+  content: "";
+  background-color: #0B2447;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .topline {
+  width: 35%;
+  transition: all 0.5s;
+}
+
+.input-container .underline {
+  position: absolute;
+  content: "";
+  background-color: #0B2447;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .underline {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .label {
+  top: -10px;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.me-image {margin-left: -60px;}
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="div1">
+            <img class="greetings-img" src="project1Photots/IMG_3432-removebg-preview.png" alt="">
+        </div>
+        <div class="div2">
+             <p class="greetings">GRETTINGS</p> </div>
+        <div class="div3">
+            <button onclick="
+            setTimeout(forward, 500);
+            
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  FORWARD
+                </span>
+              </button>
+        </div>
+    </div>
+
+   
+    
+    <script>
+      let answer1 = ''
+      let answer2 = ''
+      let answer3 = ''
+      let answer4 = ''
+      let answer5 = ''
+      function forward() {
+        let variable = document.querySelector('.greetings-img')
+        variable.src ="project1Photots/ask.png"
+
+        document.querySelector('.greetings').innerHTML = 'ARE YOU ATRUU?'
+        
+        document.querySelector('.div3').innerHTML = 
+        ` <button onclick="
+             setTimeout(Yes2 , 500) 
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  YES
+                </span>
+              </button>
+          <button onclick="
+          setTimeout(No2 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  NO
+                </span>
+              </button>
+              `
+        
+      }
+      function Yes2() {
+        let variable = document.querySelector('.greetings-img')
+        variable.src ="project1Photots/GOOD.png"
+        document.querySelector('.greetings').innerHTML = 'GOOD'
+        document.querySelector('.div3').innerHTML = 
+        ` <button onclick="
+        setTimeout(explain , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  FORWARD
+                </span>
+          
+              `
+      }
+      function No2() {
+        let variable = document.querySelector('.greetings-img')
+        variable.src ="project1Photots/sorry.png"
+        document.querySelector('.greetings').innerHTML = 'FORTUNATELY <br> NO TIME FOR YOU '
+        document.querySelector('.div3').innerHTML = 
+        ` <button onclick="
+              setTimeout(Back,500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  BACK
+                </span>
+          
+              `
+      }
+      function Back() {
+        document.querySelector('.container1').innerHTML = 
+        ` <div class="div1">
+            <img class="greetings-img" src="project1Photots/IMG_3432-removebg-preview.png" alt="">
+        </div>
+        <div class="div2">
+             <p class="greetings">GRETTINGS</p> </div>
+        <div class="div3">
+            <button onclick="
+            setTimeout(forward, 500);
+            
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  FORWARD
+                </span>
+              </button>
+        </div>`
+      }
+
+      function explain() {
+        let variable = document.querySelector('.greetings-img')
+        variable.src ="project1Photots/blink.png"
+        document.querySelector('.greetings').innerHTML = 'IM GOING TO ASK <br>SOME QNS ALR?'
+        document.querySelector('.div3').innerHTML = 
+        ` <button onclick="
+             setTimeout(ALR , 500) 
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  ALR
+                </span>
+              </button>
+          <button onclick="
+          setTimeout(No3 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  NO
+                </span>
+              </button>
+          `
+      }
+
+      function ALR() {
+       
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/specialQN.png"
+        document.querySelector('.greetings').innerHTML = 'HOW CAN I MAKE U FEEL MORE SPECIAL?'
+        document.querySelector('.div3').innerHTML = 
+        ` <div class="input-container">
+          <input class="input" name="text" type="text">
+          <label class="label" for="input">WRITE</label>
+          <div class="topline"></div>
+          <div class="underline"></div>
+          </div>
+          <button onclick="
+          setTimeout(submit3 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  SUBMIT
+                </span>
+              </button>
+          `
+      } 
+      
+      function No3() {
+        document.querySelector('.div1').innerHTML = ' <img class="greetings-img" src="project1Photots/IMG_3432-removebg-preview.png" alt="">'
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/sad.png"
+        document.querySelector('.greetings').innerHTML = 'OKAY MY BAD!'
+        document.querySelector('.div3').innerHTML = 
+        `
+          <button onclick="
+          setTimeout(Back , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  BACK
+                </span>
+              </button>
+          `
+      }
+
+      function submit3() {
+        answer1 = document.querySelector('.input').value
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/THINGS.png"
+        document.querySelector('.greetings').innerHTML = 'THINGS U LIKE ABOUT ME?'
+        document.querySelector('.div3').innerHTML = 
+        `
+        <div class="input-container">
+          <input class="input" name="text" type="text">
+          <label class="label" for="input">WRITE</label>
+          <div class="topline"></div>
+          <div class="underline"></div>
+          </div>
+          <button onclick="
+          setTimeout(submit4 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  SUBMIT
+                </span>
+              </button>
+          `
+      }
+      function submit4() {
+        answer2 = document.querySelector('.input').value
+
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/DONTLIKE.png"
+        document.querySelector('.greetings').innerHTML = 'THINGS U DONT LIKE ABOUT ME?'
+        document.querySelector('.div3').innerHTML = 
+        `
+        <div class="input-container">
+          <input class="input" name="text" type="text">
+          <label class="label" for="input">WRITE</label>
+          <div class="topline"></div>
+          <div class="underline"></div>
+          </div>
+          <button onclick="
+          setTimeout(submit5 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  SUBMIT
+                </span>
+              </button>
+          `
+      }
+      function submit5() {
+        answer3 = document.querySelector('.input').value
+
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/MAGIC.png"
+        document.querySelector('.greetings').innerHTML = `ANY SUPERPOWER FOR A DAY? <br> WHAT WILL U CHOOSE?`
+        document.querySelector('.div3').innerHTML = 
+        `
+        <div class="input-container">
+          <input class="input" name="text" type="text">
+          <label class="label" for="input">WRITE</label>
+          <div class="topline"></div>
+          <div class="underline"></div>
+          </div>
+          <button onclick="
+          setTimeout(submit6 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  SUBMIT
+                </span>
+              </button>
+          ` }
+
+      function submit6() {
+        answer4 = document.querySelector('.input').value
+
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/doulike.png"
+      document.querySelector('.div1').innerHTML += ` <img class="me-image" src="project1Photots/me.png" alt="">`
+        document.querySelector('.greetings').innerHTML = `DO U LOVE THIS GUY?`
+        document.querySelector('.div3').innerHTML = 
+        `
+         <button onclick="
+             setTimeout(Yes6 , 500) 
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  YES
+                </span>
+              </button>
+          <button onclick="
+          setTimeout(No3 , 500)
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  NO
+                </span>
+              </button>
+              
+          ` }
+      function Yes6() {
+        document.querySelector('.div1').innerHTML = ' <img class="greetings-img" src="project1Photots/IMG_3432-removebg-preview.png" alt="">'
+            answer5 = 'YES'
+        let variable = document.querySelector('.greetings-img')
+      variable.src ="project1Photots/hugs.png"
+        document.querySelector('.greetings').innerHTML = 'I LOVE YOU'
+        document.querySelector('.div3').innerHTML = 
+        `  <button onclick="
+             setTimeout(showResults , 500) 
+              " class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  SHOW RESULTS
+                </span>
+              </button>
+          `
+          }
+  function showResults(){
+    console.log(answer1,answer2,answer3,answer4,answer5)
+    document.querySelector('.container1').innerHTML =  
+    `<p>HOW CAN I MAKE U FEEL MORE SPECIAL?<br>Ans:${answer1}</p>
+    <p>THINGS U LIKE ABOUT ME?<br>Ans:${answer2}</p>
+    <p>THINGS U DONT LIKE ABOUT ME?<br>Ans:${answer3}</p>
+    <p>SUPERPOWER  WILL U CHOOSE?<br>Ans:${answer4}</p>
+    <p>DO U LOVE PRASHNAM?<br>Ans:${answer5}</p>
+    <p>SCREENSHOT</p>
+    `
+  }
+
+    </script>
+</body>
+</html>
